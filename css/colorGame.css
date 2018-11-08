@@ -5,6 +5,9 @@ body {
 h1 {
     color: #ffffff;
 }
+span {
+    color: #ffffff;
+}
 #container {
     max-width: 600px;
     margin: 0 auto;

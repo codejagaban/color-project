@@ -11,7 +11,8 @@ var colors = [
 // gets elements from the DOM Tree
 squares = document.querySelectorAll(".square"),
 colorDisplay = document.getElementById("colorDisplay");
-pickedColor = colors[3],
+messageDisplay = document.querySelector("#message");
+pickedColor = pickColor(),
 colorDisplay.textContent = pickedColor;
 
 for(var i = 0; i < squares.length; i++) {
@@ -26,13 +27,29 @@ for(var i = 0; i < squares.length; i++) {
 
         // compare color to pickedColor
         if (clickedColor === pickedColor) {
-            alert("CORRECT")
+            messageDisplay.textContent = "Correct";
+            changeColors(clickedColor);
             
+            // if the picked color is not the same as the clicked color
+
         } else {
-            this.style.backgroundColor = "#232323"
+            this.style.backgroundColor = "#232323";
+            messageDisplay.textContent = "Try Again";
             
         }
-    })
+    });
+}
+function changeColors(color) {
+    // loop through all the squares
+    for(i=0; i< squares.length; i++){
+        // change each color to match the given color
+        squares[i].style.backgroundColor = color;
 
-
+    }
+}
+// pick a random color from the array of colors
+function pickColor() {
+   var random = Math.floor(Math.random() * colors.length)
+   return colors[random];
+    
 }
