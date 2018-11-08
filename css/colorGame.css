@@ -5,8 +5,14 @@ body {
 h1 {
     color: #ffffff;
 }
-span {
-    color: #ffffff;
+.selected {
+    background: blue;
+}
+#strip {
+    background: #ffffff;
+    height: 30px;
+    text-align: center;
+    color: #232323;
 }
 #container {
     max-width: 600px;

@@ -1,10 +1,42 @@
 // creates an Array of colors
-var colors = generateRandomColors(6),
+var colors = generateRandomColors(6);
+var pickedColor = pickColor();
 // gets elements from the DOM Tree
-squares = document.querySelectorAll(".square"),
-colorDisplay = document.getElementById("colorDisplay");
-messageDisplay = document.querySelector("#message");
-pickedColor = pickColor(),
+var squares = document.querySelectorAll(".square");
+var colorDisplay = document.getElementById("colorDisplay");
+var messageDisplay = document.querySelector("#message");
+var h1 = document.querySelector("h1");
+var resetButton = document.querySelector("#reset");
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
+
+
+
+easyBtn.addEventListener("click", function(){
+
+});
+resetButton.addEventListener("click", function(){
+    // generate all new colors 
+     colors = generateRandomColors(6);
+    // generate a new random color from the array
+    pickedColor = pickColor();
+
+    // change the colorDisplay to match the pickedColor
+    colorDisplay.textContent = pickedColor;
+
+    // change the colors of the squares
+    for(i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = colors[i];
+        h1.style.backgroundColor = "#232323"
+
+    }
+
+    // change the colors from the squares of the page to the Arrays colors
+   
+})
+
+
+
 colorDisplay.textContent = pickedColor;
 
 for(var i = 0; i < squares.length; i++) {
@@ -21,6 +53,8 @@ for(var i = 0; i < squares.length; i++) {
         if (clickedColor === pickedColor) {
             messageDisplay.textContent = "Correct";
             changeColors(clickedColor);
+            h1.style.backgroundColor = clickedColor;
+            resetButton.textContent = "Play Again?"
             
             // if the picked color is not the same as the clicked color
 
