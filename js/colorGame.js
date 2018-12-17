@@ -1,5 +1,6 @@
 // creates an Array of colors
-var colors = generateRandomColors(6);
+var numSquares = 6;
+var colors = generateRandomColors(numSquares);
 var pickedColor = pickColor();
 // gets elements from the DOM Tree
 var squares = document.querySelectorAll(".square");
@@ -12,26 +13,59 @@ var hardBtn = document.querySelector("#hardBtn");
 
 
 
+// select the easy level game
 easyBtn.addEventListener("click", function(){
     easyBtn.classList.add("selected");
     hardBtn.classList.remove("selected");
+    numSquares = 3;
+
+    // generate a random set of 3 new colors
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    for(var i = 0; i < squares.length; i++){
+        if (colors[i]) {
+            squares[i].style.backgroundColor = colors[i];
+            
+        } else {
+            squares[i].style.display = "none"
+            
+        }
+
+    }
+    
     
 
 });
+
+
+
+// selects the hard level game
 
 hardBtn.addEventListener("click", function(){
     hardBtn.classList.add("selected");
     easyBtn.classList.remove("selected");
+        // generate all new colors 
+        numSquares = 6;
+        colors = generateRandomColors(numSquares);
+        pickedColor = pickColor();
+        colorDisplay.textContent = pickedColor;
+        for(var i = 0; i < squares.length; i++){
+                squares[i].style.backgroundColor = colors[i];
+                squares[i].style.display = "block";
+    
+        }
+
     
 
 });
 
 
 
-
+//  resets the game and give a new random colors
 resetButton.addEventListener("click", function(){
     // generate all new colors 
-     colors = generateRandomColors(6);
+     colors = generateRandomColors(numSquares);
     // generate a new random color from the array
     pickedColor = pickColor();
 
@@ -47,7 +81,8 @@ resetButton.addEventListener("click", function(){
 
     // change the colors from the squares of the page to the Arrays colors
    
-})
+});
+//0701 939 1997
 
 
 
