@@ -82,7 +82,6 @@ resetButton.addEventListener("click", function(){
     // change the colors from the squares of the page to the Arrays colors
    
 });
-//0701 939 1997
 
 
 
